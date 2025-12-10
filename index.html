@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-mole</title>
+</head>
+<body>
+
+    <script>
+        const holes = document.querySelectorAll('.hole');
+        const scoreBoard = document.querySelectorAll('.score');
+        const moles = document.querySelectorAll('.mole');
+
+        function randTime(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        function randomHole(holes) {
+            const idx = Math.floot(Math.random() * holes.lenght);
+            const hole = holes[idx];
+
+            if(hole === lastHole) {
+                console.log('Not in the same hole dude');
+                return randomHole(holes);
+            }
+            lastHole = hole;
+            return hole;
+        }
+
+        function peep() {
+            const time = randTime(200, 100);
+            const hole = randomHole(holes);
+        }
+
+    </script>
+</body>
+</html>
